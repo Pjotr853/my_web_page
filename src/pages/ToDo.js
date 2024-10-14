@@ -48,7 +48,7 @@ function ToDo() {
 
         <input
             type="text"
-            placeholder="Ebter a task..."
+            placeholder="Enter a task..."
             value={newTask}
             onChange={handleInputChange}>
         </input>
