@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import Blogs from "./pages/Blogs";
+import Blockchain from "./pages/Blockchain";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 
@@ -28,7 +28,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="todo" element={<ToDo />} />
-          <Route path="blogs" element={<Blogs />} />
+          <Route path="blockchain" element={<Blockchain />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
         </Route>
