@@ -11,6 +11,8 @@ import Home from "./pages/Home";
 import Blockchain from "./pages/Blockchain";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
+import Countries from './pages/Countries';
+
 
 //const root = ReactDOM.createRoot(document.getElementById('root'));
 /*root.render(
@@ -30,6 +32,7 @@ export default function App() {
           <Route path="todo" element={<ToDo />} />
           <Route path="blockchain" element={<Blockchain />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="countries" element={<Countries />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
