@@ -12,6 +12,7 @@ import Blockchain from "./pages/Blockchain";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Countries from './pages/Countries';
+import Game from './pages/Game';
 
 
 //const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="blockchain" element={<Blockchain />} />
           <Route path="contact" element={<Contact />} />
           <Route path="countries" element={<Countries />} />
+          <Route path="game" element={<Game />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

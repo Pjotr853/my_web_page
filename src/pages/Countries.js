@@ -5,7 +5,7 @@ function Countries(){
     const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")  // Nahraď skutočnou URL API
+    fetch("https://restcountries.com/v3.1/all")  
       .then((response) => response.json())
       .then((data) => {
         const mappedCountries = data.map((country) => ({
