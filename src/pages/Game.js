@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import './Game.css';
 
 function Game() {
-
     const canvasRef = useRef(null);
 
     const widthRectangel = 30;
@@ -25,11 +24,10 @@ function Game() {
     ]);
 
     const [isPress, setIsPress] = useState(false);
-
     const [foodX, setFoodX] = useState(canvasWidht - 2 * widthRectangel);
     const [foodY, setFoodY] = useState(canvasHeight / 2);
-
     const [score, setScore] = useState(0);
+    const [gameRunning, setGameRunning] = useState(true);
 
     function drawRectangel(ctx, x, y, width, height, color) {
         ctx.fillStyle = color;
@@ -57,7 +55,11 @@ function Game() {
             drawRectangel(ctx, segment.x, segment.y, widthRectangel, heightRectangel, "blue");
         });
 
-        
+        if (!gameRunning) {
+            ctx.fillStyle = "black";
+            ctx.font = "50px Arial";
+            ctx.fillText("Game Over", canvasWidht / 4, canvasHeight / 2);
+        }
     }
 
     function handleKeyDown(e) {
@@ -75,7 +77,7 @@ function Game() {
             } else if ((e.key === 'd' || e.key === 'ArrowRight') && directX !== -1) {
                 setDirectX(1);
                 setDirectY(0);
-            }
+            } 
         }
     }
 
@@ -101,40 +103,63 @@ function Game() {
             }
             return newY;
         });
+
         snakeTail();
     }
 
     function snakeTail() {
-        
         setTail(prevTail => {
             const newTail = [...prevTail, { x: snakePositionX, y: snakePositionY }];
             return newTail.slice(-snakeLenght);
         });
     }
 
-    function eatFood(){
-
-        if(snakePositionX==foodX && snakePositionY==foodY){
-            setSnakeLenght(snakeLenght+1);
-            setScore(score+1);
+    function eatFood() {
+        if (snakePositionX === foodX && snakePositionY === foodY) {
+            setSnakeLenght(snakeLenght + 1);
+            setScore(score + 1);
             generateFood();
         }
     }
-    
-    function generateFood(){
+
+    function generateFood() {
         const newFoodX = Math.floor(Math.random() * 16) * widthRectangel;
         const newFoodY = Math.floor(Math.random() * 16) * heightRectangel;
-        
+
         const isCollidingWithSnake = tail.some(segment => segment.x === newFoodX && segment.y === newFoodY);
-        
-        if ((newFoodX === snakePositionX && newFoodY === snakePositionY)||isCollidingWithSnake) {
-            generateFood(); 
+
+        if ((newFoodX === snakePositionX && newFoodY === snakePositionY) || isCollidingWithSnake) {
+            generateFood();
         } else {
             setFoodX(newFoodX);
             setFoodY(newFoodY);
         }
+    }
 
-    };
+    function gameOver() {
+        const isCollidingWithSnake = tail.some(segment => segment.x === snakePositionX && segment.y === snakePositionY);
+
+        if (isCollidingWithSnake) {
+            setGameRunning(false);
+        }
+    }
+
+    function handleKeyDownResetFunction(e){
+        if(e.key === 'r'){
+            setSnakePositionX(4 * widthRectangel);
+            setSnakePositionY(canvasHeight / 2);
+            setDirectX(1);
+            setDirectY(0);
+            setSnakeLenght(3);
+            setTail([ { x: 4 * widthRectangel - widthRectangel, y: canvasHeight / 2 }]);
+            setIsPress(false);
+            setFoodX(canvasWidht - 2 * widthRectangel);
+            setFoodY(canvasHeight / 2);
+            setScore(0);
+            setGameRunning(true);
+        }
+        
+    }
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -143,13 +168,18 @@ function Game() {
         canvas.width = canvasWidht;
         canvas.height = canvasHeight;
 
-        const interval = setInterval(() => {
-            moveSnake();
-            eatFood();
-           // snakeTail();
-        }, speed);
-
-        window.addEventListener('keydown', handleKeyDown);
+        let interval;
+        if (gameRunning) {
+            interval = setInterval(() => {
+                moveSnake();
+                eatFood();
+                gameOver();
+            }, speed);
+            window.addEventListener('keydown', handleKeyDown);
+        }
+        else{
+            window.addEventListener('keydown', handleKeyDownResetFunction);
+        }
         animation(ctx);
 
         return () => {
@@ -157,7 +187,7 @@ function Game() {
             window.removeEventListener('keydown', handleKeyDown);
             setIsPress(false);
         };
-    }, [directX, directY, snakePositionX, snakePositionY]);
+    }, [directX, directY, snakePositionX, snakePositionY, gameRunning]);
 
     return (
         <div>
