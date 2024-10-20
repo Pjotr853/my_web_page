@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import CryptoJS from "crypto-js";
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 function Blockchain() {
   /*const [block, setBlock] = useState([
@@ -73,53 +76,61 @@ function Blockchain() {
     <div>
       <h1>Blockchain</h1>
 
+      <InputGroup className="mb-3">
+        <InputGroup.Text>First and last name</InputGroup.Text>
+        <Form.Control aria-label="First name" type="text"
+          name="brand"
+          placeholder="brand"
+          value={newBlock.brand}
+          onChange={handleInputChange}/>
+        
+        <Form.Control aria-label="Last name" 
+        type="text"
+        name="model"
+        placeholder="model"
+        value={newBlock.model}
+        onChange={handleInputChange}/>
+
+        <Form.Control aria-label="Last name"
+        type="text"
+        name="year"
+        placeholder="year"
+        value={newBlock.year}
+        onChange={handleInputChange} />
+
+        <Form.Control aria-label="Last name" 
+        type="text"
+        name="color"
+        placeholder="color"
+        value={newBlock.color}
+        onChange={handleInputChange}/>
+
+        <button onClick={addBlock}>Add Block</button>
+      </InputGroup>
+
+      
+
       
 
       
       <ol>
         {block.map((blockItem, index) => (
+          
           <li key={index}>
-            <span className="block">Brand: {blockItem.brand}</span> <br />
-            <span>Model: {blockItem.model}</span> <br />
-            <span>Year: {blockItem.year}</span> <br />
-            <span>Color: {blockItem.color}</span><br />
-            <span>Predchádzajúci Hash: {blockItem.previousHash}</span><br />
-            <span>Hash: {blockItem.hash}</span><br />
-            <span>Time: {blockItem.time}</span>
-          </li>
+            <ListGroup>
+              <ListGroup.Item>Brand: {blockItem.brand}</ListGroup.Item>
+              <ListGroup.Item>Model: {blockItem.model}</ListGroup.Item>
+              <ListGroup.Item>Year: {blockItem.year}</ListGroup.Item>
+              <ListGroup.Item>Color: {blockItem.color}</ListGroup.Item>
+              <ListGroup.Item>Predchádzajúci Hash: {blockItem.previousHash}</ListGroup.Item>
+              <ListGroup.Item>Hash: {blockItem.hash}</ListGroup.Item>
+              <ListGroup.Item>Time: {blockItem.time}</ListGroup.Item>
+            </ListGroup>
+            </li>
         ))}
       </ol>
 
-        <input
-          type="text"
-          name="brand"
-          placeholder="newblock.brand"
-          value={newBlock.brand}
-          onChange={handleInputChange}>
-        </input>
-        <input
-          type="text"
-          name="model"
-          placeholder="newblock.model"
-          value={newBlock.model}
-          onChange={handleInputChange}>
-        </input>
-        <input
-          type="text"
-          name="year"
-          placeholder="newblock.year"
-          value={newBlock.year}
-          onChange={handleInputChange}>
-        </input>
-        <input
-          type="text"
-          name="color"
-          placeholder="newblock.color"
-          value={newBlock.color}
-          onChange={handleInputChange}>
-        </input>
-
-        <button onClick={addBlock}>Add Block</button>
+        
 
     </div>
   );

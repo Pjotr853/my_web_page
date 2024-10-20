@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import './Game.css';
+import './Snake.css';
 
-function Game() {
+function Snake() {
     const canvasRef = useRef(null);
 
     const widthRectangel = 30;
@@ -191,10 +191,11 @@ function Game() {
 
     return (
         <div>
-            <h1>Hello Game</h1> <h2>Score {score}</h2>
+            <h1>Snake</h1>
+             <h2>Score {score}</h2>
             <canvas ref={canvasRef} className='borderCanvas' />
         </div>
     );
 }
 
-export default Game;
+export default Snake;

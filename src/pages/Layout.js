@@ -17,7 +17,7 @@ const Layout = () => {
             <Nav.Link href="/todo">ToDo</Nav.Link>
             <Nav.Link href="blockchain">Blockchain</Nav.Link>
             <Nav.Link href="/countries">Countries</Nav.Link>
-            <Nav.Link href="/game">Game</Nav.Link>
+            <Nav.Link href="/snake">Snake</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
