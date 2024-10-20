@@ -1,4 +1,7 @@
 import React, {useState}  from "react";
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 function ToDo() {
     const [task, setTask] = useState(["Eat Breakfast", "Take a shower", "Walk the dog"]);
@@ -59,31 +62,33 @@ function ToDo() {
             Add
         </button>
 
-        <ol>
+        <ListGroup>
             {task.map((task,index)=>
-            <li key={index}>
-                <span className="text">{task}</span>
-                <button 
-                className="delete_button"
-                onClick={()=>deleteTask(index)}>
-                    Delete
-                </button>
+            <ListGroup.Item key={index}>
+                <span className="text" style={{ marginRight: "20px" }}>{index+1}. {task }</span>
+                
 
-                <button 
-                className="move_button"
-                onClick={()=>moveTaskUp(index)}>
+                <Button  
+                    variant="outline-secondary"
+                    onClick={()=>moveTaskUp(index)}>
                     Up
-                </button>
+                </Button>{' '}
 
-                <button 
-                className="move_button"
-                onClick={()=>moveTaskDown(index)}>
+                <Button 
+                    variant="outline-secondary"
+                    onClick={()=>moveTaskDown(index)}>
                     Down
-                </button>
+                </Button>{' '}
+
+                <Button 
+                    variant="outline-danger"
+                    onClick={()=>deleteTask(index)}>
+                    Delete
+                </Button>{' '}
 
                 
-            </li>)}
-        </ol>
+            </ListGroup.Item>)}
+        </ListGroup>
 
     </div>
     );

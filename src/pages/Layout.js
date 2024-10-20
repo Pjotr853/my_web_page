@@ -1,31 +1,30 @@
 import { Outlet, Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Layout = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/blockchain">Blockchain</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/todo">ToDo</Link>
-          </li>
-          <li>
-            <Link to="/countries">Countries</Link>
-          </li>
-          <li>
-            <Link to="/game">Game</Link>
-          </li>
-        </ul>
-      </nav>
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="/">Home</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/todo">ToDo</Nav.Link>
+            <Nav.Link href="blockchain">Blockchain</Nav.Link>
+            <Nav.Link href="/countries">Countries</Nav.Link>
+            <Nav.Link href="/game">Game</Nav.Link>
+            <Nav.Link href="/contact">Contact</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
 
+      
       <Outlet />
     </>
   )
