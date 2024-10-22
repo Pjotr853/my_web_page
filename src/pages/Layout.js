@@ -19,6 +19,7 @@ const Layout = () => {
             <Nav.Link href="/countries">Countries</Nav.Link>
             <Nav.Link href="/snake">Snake</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
+            <Nav.Link href="/mongo">Mongo</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

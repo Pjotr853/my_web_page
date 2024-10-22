@@ -43,9 +43,9 @@ function Home ()  {
           <Card.Body>
             <Card.Title>Blockchain</Card.Title>
             <Card.Text>
-              Blockchain predstavuje retazec blokov nesúcich informáciu. Tieto 
+              Blockchain predstavuje reťazec blokov nesúcich informáciu. Tieto 
               bloky sa nesmú presúvať ani mazať a musia nasledovať za sebou podľa času vzniku.
-              Kontrola blookov predstavuje riešenie pomocou hashovacej funkcie.
+              Kontrola blokov predstavuje riešenie pomocou hashovacej funkcie.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -71,7 +71,7 @@ function Home ()  {
             <Card.Title>Snake</Card.Title>
             <Card.Text>
               Snake predstavuje klasickú hru Hadík. Pozostáva iba z jedného módu. Ovláda sa pomocou 
-              šípiek, alebo WASD. Hra sa resetuje po stlačení klávesy r.
+              šípiek alebo WASD. Hra sa resetuje po stlačení klávesy r.
             </Card.Text>
           </Card.Body>
         </Card>

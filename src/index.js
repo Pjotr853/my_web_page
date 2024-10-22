@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Countries from './pages/Countries';
 import Snake from './pages/Snake';
+import Mongo from './pages/Mongo';
 
 
 //const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,6 +26,7 @@ import Snake from './pages/Snake';
 */
 
 export default function App() {
+
   return (
     <BrowserRouter>
       <Routes>
@@ -35,6 +37,7 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="countries" element={<Countries />} />
           <Route path="snake" element={<Snake />} />
+          <Route path="mongo" element={<Mongo />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
