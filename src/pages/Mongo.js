@@ -20,12 +20,25 @@ function Mongo(){
       };
     
       const addTask = async () => {
+        if (!newTask.title || !newTask.description) {
+            alert("Both title and description are required!");
+            return;
+          }
         try {
           await axios.post('http://localhost:5000/tasks', newTask);
           setNewTask({ title: '', description: '' });
           fetchTasks(); // Refresh task list
         } catch (error) {
           console.error('Error adding task:', error);
+        }
+      };
+
+      const deleteTask = async (id) => {
+        try {
+          await axios.delete(`http://localhost:5000/tasks/${id}`);
+          fetchTasks(); // Refresh task list
+        } catch (error) {
+          console.error('Error deleting task:', error);
         }
       };
     
@@ -46,12 +59,14 @@ function Mongo(){
                 onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
             />
             <button onClick={addTask}>Add Task</button>
+            
 
             <ul>
                 {tasks.map(task => (
                 <li key={task._id}>
                     <h2>{task.title}</h2>
                     <p>{task.description}</p>
+                    <button onClick={() => deleteTask(task._id)}>Delete Task</button>
                 </li>
                 ))}
             </ul>

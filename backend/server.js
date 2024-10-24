@@ -1,6 +1,17 @@
 const mongoose = require('mongoose');
-
+const express = require('express');
 const User= require("./models/Users");
+const Task= require("./models/Task");
+
+const bodyParser = require('body-parser');
+const cors = require('cors'); //Povoľuje komunikáciu medzi aplikáciami na rôznych doménach alebo portoch.
+
+const app = express();
+const PORT = process.env.PORT || 5000; 
+
+
+app.use(bodyParser.json()); 
+app.use(cors());
 
 mongoose.connect("mongodb://localhost/testdb")
   .then(() => {
@@ -9,6 +20,64 @@ mongoose.connect("mongodb://localhost/testdb")
   .catch(e => {
     console.error("Connection error", e);
   });
+
+  app.get('/', (req, res) => {
+    res.send('Backend is running!');
+  });
+
+
+  app.get('/tasks', async (req, res) => {
+    try {
+      const tasks = await Task.find();
+      res.json(tasks);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+
+  app.post('/tasks', async (req, res) => {
+    const task = new Task({
+      title: req.body.title,
+      description: req.body.description,
+    });
+  
+    try {
+      const newTask = await task.save();
+      res.status(201).json(newTask);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  });
+
+ 
+
+  app.delete('/tasks/:id', async (req, res) => {
+    try {
+      const task = await Task.findById(req.params.id);
+      if (!task) {
+        return res.status(404).json({ message: 'Task not found' });
+      }
+  
+      await task.remove();
+      res.json({ message: 'Task deleted' });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+
+
+
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+
+
+
+
+
+
+
+/*
 
 run();
 async function run(){
@@ -50,7 +119,7 @@ async function run(){
    
 }
 
-
+*/
 
 
 //if (process.env.NODE_ENV !== 'production') {
