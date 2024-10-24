@@ -30,10 +30,19 @@ const userSchema = new mongoose.Schema({
     bestFriend: mongoose.SchemaTypes.ObjectId,
     hobbies: [String],
     adress: addressSchema
-   // adress: {
-    //    street: String,
-    //    city: String
-   // }
+   /* adress: {
+        street: String,
+        city: String
+    }*/
 });
+
+
+userSchema.methods.sayHi = function(){
+    console.log(`Hi my name is ${this.name}`);
+}
+
+userSchema.statics.findByName = function(name){
+    return this.where({name: new RegExp(name,'i')});
+}
 
 module.exports= mongoose.model("User", userSchema);

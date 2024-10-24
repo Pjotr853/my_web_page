@@ -37,8 +37,12 @@ async function run(){
        // console.log("userFind");
         //const userFind = await User.find({name: "Peter"});
         //const deleteUser= await User.deleteOne({name: "Peter"});
-        const user = await User.where("name").equals("Peter");
+        //const user = await User.where("name").equals("Peter");
+        //const user = await User.where("name").equals("Peter");
+        //const user = await User.findOne({ name: "Peter" });
+        const user = await User.findByName("Peter");
         console.log(user);
+        user.sayHi();
     } catch(e){
         console.log(e.message);
     }
