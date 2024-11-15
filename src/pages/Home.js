@@ -3,6 +3,7 @@ import toDoImage from '../images/toDo.png';
 import blockchain from '../images/blockchain.jpg';
 import countries from '../images/countries.jpg';
 import snake from '../images/Snake.png';
+import mongodb from '../images/MongoDb.png';
 
 
 import Button from 'react-bootstrap/Button';
@@ -72,6 +73,19 @@ function Home ()  {
             <Card.Text>
               Snake predstavuje klasickú hru Hadík. Pozostáva iba z jedného módu. Ovláda sa pomocou 
               šípiek alebo WASD. Hra sa resetuje po stlačení klávesy r.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+
+      <Col>
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={mongodb} style={{ width: '286px', height: '180px' }} />
+          <Card.Body>
+            <Card.Title>Mongo</Card.Title>
+            <Card.Text>
+              Mongo predstavuje predstavuje jednoduchý Todo list vytvorený pomocou databázy MongoDB. K tejto 
+              karte je potrebné zapnuť server pre ukladanie dát.
             </Card.Text>
           </Card.Body>
         </Card>

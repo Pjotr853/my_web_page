@@ -1,31 +1,44 @@
-const mongoose = require('mongoose');
 const express = require('express');
-const User= require("./models/Users");
-const Task= require("./models/Task");
-
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors'); //Povoľuje komunikáciu medzi aplikáciami na rôznych doménach alebo portoch.
+const cors = require('cors');
+const taskRoutes = require('./routes/tasks');
 
+// Inicializácia aplikácie
 const app = express();
-const PORT = process.env.PORT || 5000; 
+const PORT = process.env.PORT || 5000;
 
-
-app.use(bodyParser.json()); 
+// Middleware
+app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect("mongodb://localhost/testdb")
+// Pripojenie k MongoDB
+mongoose.connect("mongodb://localhost/testdb", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then(() => {
     console.log("Connected to MongoDB");
   })
-  .catch(e => {
-    console.error("Connection error", e);
+  .catch((e) => {
+    console.error("Connection error:", e);
   });
 
-  app.get('/', (req, res) => {
-    res.send('Backend is running!');
-  });
+// Import a použitie routy pre tasks
+app.use('/tasks', taskRoutes);
+
+// Testovacia routa
+app.get('/', (req, res) => {
+  res.send('Backend is running!');
+});
+
+// Spustenie servera
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 
+/*
   app.get('/tasks', async (req, res) => {
     try {
       const tasks = await Task.find();
@@ -65,12 +78,12 @@ mongoose.connect("mongodb://localhost/testdb")
     }
   });
 
+*/
 
-
-  app.listen(PORT, () => {
+ /* app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
-
+*/
 
 
 
