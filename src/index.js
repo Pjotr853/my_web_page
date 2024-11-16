@@ -14,6 +14,7 @@ import NoPage from "./pages/NoPage";
 import Countries from './pages/Countries';
 import Snake from './pages/Snake';
 import Mongo from './pages/Mongo';
+import Currency from './pages/Currency';
 
 
 //const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="countries" element={<Countries />} />
           <Route path="snake" element={<Snake />} />
           <Route path="mongo" element={<Mongo />} />
+          <Route path="currency" element={<Currency />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
