@@ -4,9 +4,10 @@ import blockchain from '../images/blockchain.jpg';
 import countries from '../images/countries.jpg';
 import snake from '../images/Snake.png';
 import mongodb from '../images/MongoDb.png';
+import currency from '../images/Currency.jpg';
 
 
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -86,6 +87,19 @@ function Home ()  {
             <Card.Text>
               Mongo predstavuje predstavuje jednoduchý Todo list vytvorený pomocou databázy MongoDB. K tejto 
               karte je potrebné zapnuť server pre ukladanie dát.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+
+      <Col>
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={currency} style={{ width: '286px', height: '180px' }} />
+          <Card.Body>
+            <Card.Title>Currency</Card.Title>
+            <Card.Text>
+              Currency predstavuje predstavuje prepočet kurzov medzi menami. Údaje o kuzoch sa získavajú prostredníctvom API, z 
+              ktorých sú vybrané len tie najpodstatnejšie.
             </Card.Text>
           </Card.Body>
         </Card>
