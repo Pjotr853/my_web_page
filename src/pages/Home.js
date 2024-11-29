@@ -5,6 +5,7 @@ import countries from '../images/countries.jpg';
 import snake from '../images/Snake.png';
 import mongodb from '../images/MongoDb.png';
 import currency from '../images/Currency.jpg';
+import reactRedux from '../images/reactRedux.png';
 
 
 //import Button from 'react-bootstrap/Button';
@@ -100,6 +101,18 @@ function Home ()  {
             <Card.Text>
               Currency predstavuje predstavuje prepočet kurzov medzi menami. Údaje o kuzoch sa získavajú prostredníctvom API, z 
               ktorých sú vybrané len tie najpodstatnejšie.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+
+      <Col>
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={reactRedux} style={{ width: '286px', height: '180px' }} />
+          <Card.Body>
+            <Card.Title>Redux</Card.Title>
+            <Card.Text>
+              Redux predstavuje využitie React Redux na ponechanie stavu premenných aj pri zmene linku. 
             </Card.Text>
           </Card.Body>
         </Card>

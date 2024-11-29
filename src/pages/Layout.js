@@ -17,10 +17,10 @@ const Layout = () => {
               <Nav.Link as={Link} to="/blockchain">Blockchain</Nav.Link>
               <Nav.Link as={Link} to="/countries">Countries</Nav.Link>
               <Nav.Link as={Link} to="/snake">Snake</Nav.Link>
-              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
               <Nav.Link as={Link} to="/mongo">Mongo</Nav.Link>
               <Nav.Link as={Link} to="/currency">Currency</Nav.Link>
               <Nav.Link as={Link} to="/redux">Redux</Nav.Link>
+              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -43,14 +43,13 @@ import ReduxPage from './pages/reduxPage/ReduxPage';
           <Route index element={<Home />} />
           <Route path="todo" element={<ToDo />} />
           <Route path="blockchain" element={<Blockchain />} />
-          <Route path="contact" element={<Contact />} />
           <Route path="countries" element={<Countries />} />
           <Route path="snake" element={<Snake />} />
           <Route path="mongo" element={<Mongo />} />
           <Route path="currency" element={<Currency />} />
-          
           <Route path="redux" element={<ReduxPage />} />
           
+          <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
