@@ -20,7 +20,7 @@ import Mongo from './pages/Mongo';
 import Currency from './pages/Currency';
 
 
-import Counter from './pages/reduxPage/ReduxPage';
+import ReduxPage from './pages/reduxPage/ReduxPage';
 
 
 
@@ -49,7 +49,7 @@ import Counter from './pages/reduxPage/ReduxPage';
           <Route path="mongo" element={<Mongo />} />
           <Route path="currency" element={<Currency />} />
           
-          <Route path="redux" element={<Counter />} />
+          <Route path="redux" element={<ReduxPage />} />
           
           <Route path="*" element={<NoPage />} />
         </Route>

@@ -17,7 +17,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-export function Counter() {
+export function ReduxPage() {
   const count = useSelector(selectCount);
   const name = useSelector(selectName);
   const password = useSelector(selectPassword);
@@ -104,4 +104,4 @@ export function Counter() {
   );
 }
 
-export default Counter;
+export default ReduxPage;
