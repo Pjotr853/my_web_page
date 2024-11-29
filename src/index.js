@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+import { Provider } from "react-redux";
+import store from './store';
+
 import ToDo from './pages/ToDo';
 
 
@@ -17,6 +20,10 @@ import Mongo from './pages/Mongo';
 import Currency from './pages/Currency';
 
 
+import Counter from './pages/reduxPage/ReduxPage';
+
+
+
 //const root = ReactDOM.createRoot(document.getElementById('root'));
 /*root.render(
   <React.StrictMode>
@@ -26,9 +33,10 @@ import Currency from './pages/Currency';
 );
 */
 
-export default function App() {
+ function App() {
 
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -40,10 +48,14 @@ export default function App() {
           <Route path="snake" element={<Snake />} />
           <Route path="mongo" element={<Mongo />} />
           <Route path="currency" element={<Currency />} />
+          
+          <Route path="redux" element={<Counter />} />
+          
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
+    </Provider>
   );
 }
 
