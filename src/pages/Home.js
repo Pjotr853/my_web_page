@@ -27,8 +27,8 @@ function Home ()  {
       
       <Container>
       <Row>
-        <Col>
-        <Card style={{ width: '18rem' }}>
+        <Col className="d-flex align-items-stretch p-2">
+        <Card style={{ width: '18rem' }} className="h-100" >
           <Card.Img variant="top" src={toDoImage} style={{ width: '286px', height: '180px' }} />
           <Card.Body>
             <Card.Title>ToDo</Card.Title>
@@ -40,8 +40,8 @@ function Home ()  {
         </Card>
       </Col>
 
-      <Col>
-        <Card style={{ width: '18rem' }}>
+      <Col className="d-flex align-items-stretch p-2">
+        <Card style={{ width: '18rem' }} className="h-100" >
           <Card.Img variant="top" src={blockchain} style={{ width: '286px', height: '180px' }} />
           <Card.Body>
             <Card.Title>Blockchain</Card.Title>
@@ -54,8 +54,8 @@ function Home ()  {
         </Card>
       </Col>
 
-      <Col>
-        <Card style={{ width: '18rem' }}>
+      <Col className="d-flex align-items-stretch p-2">
+        <Card style={{ width: '18rem' }} className="h-100" >
           <Card.Img variant="top" src={countries} style={{ width: '286px', height: '180px' }} />
           <Card.Body>
             <Card.Title>Countries</Card.Title>
@@ -67,8 +67,8 @@ function Home ()  {
         </Card>
       </Col>
 
-      <Col>
-        <Card style={{ width: '18rem' }}>
+      <Col className="d-flex align-items-stretch p-2">
+        <Card style={{ width: '18rem' }} className="h-100" >
           <Card.Img variant="top" src={snake} style={{ width: '286px', height: '180px' }} />
           <Card.Body>
             <Card.Title>Snake</Card.Title>
@@ -80,8 +80,8 @@ function Home ()  {
         </Card>
       </Col>
 
-      <Col>
-        <Card style={{ width: '18rem' }}>
+      <Col className="d-flex align-items-stretch p-2">
+        <Card style={{ width: '18rem' }} className="h-100" >
           <Card.Img variant="top" src={mongodb} style={{ width: '286px', height: '180px' }} />
           <Card.Body>
             <Card.Title>Mongo</Card.Title>
@@ -93,8 +93,8 @@ function Home ()  {
         </Card>
       </Col>
 
-      <Col>
-        <Card style={{ width: '18rem' }}>
+      <Col className="d-flex align-items-stretch p-2">
+        <Card style={{ width: '18rem' }} className="h-100" >
           <Card.Img variant="top" src={currency} style={{ width: '286px', height: '180px' }} />
           <Card.Body>
             <Card.Title>Currency</Card.Title>
@@ -106,8 +106,8 @@ function Home ()  {
         </Card>
       </Col>
 
-      <Col>
-        <Card style={{ width: '18rem' }}>
+      <Col className="d-flex align-items-stretch p-2">
+        <Card style={{ width: '18rem' }} className="h-100" >
           <Card.Img variant="top" src={reactRedux} style={{ width: '286px', height: '180px' }} />
           <Card.Body>
             <Card.Title>Redux</Card.Title>

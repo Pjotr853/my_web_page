@@ -13,7 +13,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Pripojenie k MongoDB
-mongoose.connect("mongodb://localhost/testdb", {
+//mongoose.connect("mongodb://localhost/testdb", {
+  mongoose.connect("mongodb://host.docker.internal:27017/testdb", {
+//mongoose.connect('mongodb://mongodb:27017/testdb', {
+
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
